@@ -2,7 +2,7 @@
 
 Master the powerful modal text editor.
 
-## 🎯 Modes
+## Modes
 
 Vim operates in different modes:
 
@@ -11,7 +11,7 @@ Vim operates in different modes:
 - **Visual Mode** - For selecting text (press `v` from Normal)
 - **Command Mode** - For saving, quitting, etc. (press `:` from Normal)
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 # Open file in Vim
@@ -24,7 +24,7 @@ vim +42 filename.txt
 vim file1.txt file2.txt
 ```
 
-## 🏁 Essential Commands
+## Essential Commands
 
 | Command | Description | Mode |
 |---------|-------------|------|
@@ -37,7 +37,7 @@ vim file1.txt file2.txt
 | `:q!` | Quit without saving | Command |
 | `:w filename` | Save as | Command |
 
-## 🧭 Navigation (Normal Mode)
+## Navigation (Normal Mode)
 
 ### Basic Movement
 | Key | Action |
@@ -66,7 +66,7 @@ vim file1.txt file2.txt
 | `}` | Next paragraph |
 | `%` | Jump to matching bracket |
 
-## ✍️ Editing (Normal Mode)
+## Editing (Normal Mode)
 
 ### Insert Text
 | Key | Action |
@@ -114,7 +114,7 @@ vim file1.txt file2.txt
 | `C` | Change to end of line |
 | `~` | Toggle case |
 
-## 🔍 Search & Replace
+## Search & Replace
 
 ### Search
 ```vim
@@ -145,7 +145,7 @@ N                " Previous result
 :set smartcase           " Smart case
 ```
 
-## 👁️ Visual Mode
+## Visual Mode
 
 | Key | Action |
 |-----|--------|
@@ -160,7 +160,7 @@ N                " Previous result
 | `<` | Unindent selection |
 | `~` | Toggle case |
 
-## 📑 Multiple Files & Buffers
+## Multiple Files & Buffers
 
 ### Buffers
 ```vim
@@ -194,7 +194,7 @@ gT                     " Previous tab
 :tabclose              " Close tab
 ```
 
-## ⚙️ Configuration (~/.vimrc)
+## Configuration (~/.vimrc)
 
 ```vim
 " Basic settings
@@ -224,7 +224,7 @@ set laststatus=2        " Always show status line
 colorscheme desert      " Set color scheme
 ```
 
-## 💡 Tips & Tricks
+## Tips & Tricks
 
 ### Useful Combinations
 ```vim
@@ -262,7 +262,7 @@ zR                     " Open all folds
 zM                     " Close all folds
 ```
 
-## 📚 Learn More
+## Learn More
 
 - `:help` - Built-in help
 - `:help topic` - Help on specific topic
@@ -270,4 +270,4 @@ zM                     " Close all folds
 
 ---
 
-💡 **Practice makes perfect!** Use Vim daily to build muscle memory.
+**Practice makes perfect!** Use Vim daily to build muscle memory.
