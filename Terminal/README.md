@@ -2,7 +2,7 @@
 
 Quick reference guide for essential Linux terminal commands.
 
-## 📂 Navigation
+## Navigation
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -21,7 +21,7 @@ Quick reference guide for essential Linux terminal commands.
 - `-t` - Sort by modification time
 - `-S` - Sort by file size
 
-## 📄 File Management
+## File Management
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -34,7 +34,7 @@ Quick reference guide for essential Linux terminal commands.
 | `rm -rf` | Force remove directory | `rm -rf directory/` |
 | `rmdir` | Remove empty directory | `rmdir emptydir` |
 
-## 👀 File Viewing
+## File Viewing
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -45,7 +45,7 @@ Quick reference guide for essential Linux terminal commands.
 | `tail` | View last 10 lines | `tail -n 20 file.txt` |
 | `tail -f` | Follow file (live updates) | `tail -f log.txt` |
 
-## 🔍 Search & Find
+## Search & Find
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -69,7 +69,7 @@ find . -type f -mtime -7          # Modified in last 7 days
 find . -type f -exec chmod 644 {} \;  # Execute command on results
 ```
 
-## 🔐 Permissions
+## Permissions
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -93,7 +93,7 @@ chmod go-w file.txt      # Remove write for group/others
 chmod -R 644 dir/        # Recursive
 ```
 
-## ⚙️ Process Management
+## Process Management
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -114,7 +114,7 @@ chmod -R 644 dir/        # Recursive
 - `-9 (KILL)` - Force kill
 - `-15 (TERM)` - Terminate gracefully
 
-## 💾 Disk Usage
+## Disk Usage
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -123,7 +123,7 @@ chmod -R 644 dir/        # Recursive
 | `du -h` | Human-readable sizes | `du -h --max-depth=1` |
 | `ncdu` | Interactive disk usage | `ncdu` |
 
-## 📦 Package Management
+## Package Management
 
 ### Debian/Ubuntu (apt)
 ```bash
@@ -149,7 +149,7 @@ sudo pacman -S package           # Install
 sudo pacman -R package           # Remove
 ```
 
-## 🌐 Networking
+## Networking
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -163,7 +163,7 @@ sudo pacman -R package           # Remove
 | `nslookup` | DNS lookup | `nslookup domain.com` |
 | `dig` | DNS information | `dig domain.com` |
 
-## 🔄 System Information
+## System Information
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -176,7 +176,7 @@ sudo pacman -R package           # Remove
 | `free -h` | Memory usage | `free -h` |
 | `lscpu` | CPU information | `lscpu` |
 
-## 📋 Shortcuts
+## Shortcuts
 
 | Shortcut | Description |
 |----------|-------------|
@@ -192,7 +192,7 @@ sudo pacman -R package           # Remove
 | `!!` | Repeat last command |
 | `!$` | Last argument of previous command |
 
-## 🔗 Piping & Redirection
+## Piping & Redirection
 
 ```bash
 command > file.txt           # Redirect stdout to file (overwrite)
@@ -204,7 +204,7 @@ command1 | command2          # Pipe output to another command
 command > /dev/null 2>&1    # Suppress all output
 ```
 
-## 💡 Useful Combinations
+## Useful Combinations
 
 ```bash
 # Find and delete files
