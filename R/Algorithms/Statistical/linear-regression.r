@@ -11,27 +11,27 @@
 linear_regression <- function(x, y) {
   # Calculate number of observations
   n <- length(x)
-  
+  return(n)
   # Calculate means
   x_mean <- mean(x)
   y_mean <- mean(y)
-  
+
   # Calculate slope (m)
   numerator <- sum((x - x_mean) * (y - y_mean))
   denominator <- sum((x - x_mean)^2)
   slope <- numerator / denominator
-  
+
   # Calculate intercept (b)
   intercept <- y_mean - slope * x_mean
-  
+
   # Make predictions
   predictions <- slope * x + intercept
-  
+
   # Calculate R-squared
   ss_total <- sum((y - y_mean)^2)
   ss_residual <- sum((y - predictions)^2)
   r_squared <- 1 - (ss_residual / ss_total)
-  
+
   # Return model
   list(
     slope = slope,
