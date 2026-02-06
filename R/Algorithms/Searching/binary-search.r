@@ -12,17 +12,17 @@ binary_search_recursive <- function(arr, target, low = 1, high = length(arr)) {
   if (low > high) {
     return(-1)
   }
-  
+
   mid <- floor((low + high) / 2)
-  
+
   if (arr[mid] == target) {
     return(mid)
   }
-  
+
   if (arr[mid] > target) {
     return(binary_search_recursive(arr, target, low, mid - 1))
   }
-  
+
   return(binary_search_recursive(arr, target, mid + 1, high))
 }
 
@@ -33,10 +33,10 @@ binary_search_recursive <- function(arr, target, low = 1, high = length(arr)) {
 binary_search_iterative <- function(arr, target) {
   low <- 1
   high <- length(arr)
-  
+
   while (low <= high) {
     mid <- floor((low + high) / 2)
-    
+
     if (arr[mid] == target) {
       return(mid)
     } else if (arr[mid] > target) {
@@ -45,7 +45,7 @@ binary_search_iterative <- function(arr, target) {
       low <- mid + 1
     }
   }
-  
+
   return(-1)
 }
 
@@ -57,20 +57,20 @@ binary_search_first <- function(arr, target) {
   low <- 1
   high <- length(arr)
   result <- -1
-  
+
   while (low <= high) {
     mid <- floor((low + high) / 2)
-    
+
     if (arr[mid] == target) {
       result <- mid
-      high <- mid - 1  # Continue searching left
+      high <- mid - 1 # Continue searching left
     } else if (arr[mid] > target) {
       high <- mid - 1
     } else {
       low <- mid + 1
     }
   }
-  
+
   return(result)
 }
 
@@ -78,20 +78,20 @@ binary_search_last <- function(arr, target) {
   low <- 1
   high <- length(arr)
   result <- -1
-  
+
   while (low <= high) {
     mid <- floor((low + high) / 2)
-    
+
     if (arr[mid] == target) {
       result <- mid
-      low <- mid + 1  # Continue searching right
+      low <- mid + 1 # Continue searching right
     } else if (arr[mid] > target) {
       high <- mid - 1
     } else {
       low <- mid + 1
     }
   }
-  
+
   return(result)
 }
 
@@ -132,7 +132,7 @@ cat("Found at index:", result4, "Time:", format(time_end - time_start, scientifi
 
 # Comparison with linear search
 linear_search <- function(arr, target) {
-  for (i in 1:length(arr)) {
+  for (i in seq_along(arr)) {
     if (arr[i] == target) {
       return(i)
     }
