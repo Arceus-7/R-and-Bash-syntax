@@ -1,0 +1,12 @@
+2026-01-01 INFO User Rahul logged in from 192.168.1.10
+2026-01-01 ERROR Disk space low
+2026-01-01 WARNING CPU usage high
+2026-01-02 INFO User Ankit logged in from 192.168.1.12
+2026-01-02 ERROR Failed login attempt
+2026-01-02 INFO Backup completed
+2026-01-03 INFO User Rahul logged out
+2026-01-03 ERROR Network timeout
+2026-01-03 WARNING Memory usage high
+2026-01-04 INFO User Meera logged in from 192.168.1.15
+2026-01-04 INFO File uploaded
+2026-01-04 ERROR Permission denied

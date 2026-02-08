@@ -72,6 +72,7 @@ cat("Mean =", mean_val, "\n")
 cat("Standard Deviation =", sd_val, "\n")
 cat("Upper threshold (Mean + 3SD) =", upper_threshold, "\n")
 cat("Lower threshold (Mean - 3SD) =", lower_threshold, "\n")
+cat("Does it have any outliers?\n", has_outliers, "\n")
 cat("Number of outliers found =", length(outliers), "\n")
 
 if (has_outliers) {
@@ -80,8 +81,7 @@ if (has_outliers) {
     cat("Median =", result, "\n")
 } else {
     cat("No outliers detected! Calculating MEAN...\n")
-    result <- mean(sample_data)
-    cat("Mean =", result, "\n")
+    cat("Mean =", mean_val, "\n")
 }
 
 # ----------------------------------------------------------------------------
