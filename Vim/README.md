@@ -11,6 +11,80 @@ Vim operates in different modes:
 - **Visual Mode** - For selecting text (press `v` from Normal)
 - **Command Mode** - For saving, quitting, etc. (press `:` from Normal)
 
+---
+
+## Quick Reference Card
+
+### Mode Switching
+| Command | Description |
+|---------|-------------|
+| `i` | Insert before cursor |
+| `I` | Insert at beginning of line |
+| `a` | Append after cursor |
+| `A` | Append at end of line |
+| `o` | Open new line below |
+| `O` | Open new line above |
+| `Esc` | Return to normal mode |
+
+### Saving and Quitting
+| Command | Description |
+|---------|-------------|
+| `:w` | Save |
+| `:q` | Quit |
+| `:wq` | Save and quit |
+| `:x` | Save and quit |
+| `ZZ` | Save and quit |
+| `:q!` | Quit without saving |
+| `:w filename` | Save as filename |
+
+### Navigation
+| Command | Description |
+|---------|-------------|
+| `h` | Left |
+| `j` | Down |
+| `k` | Up |
+| `l` | Right |
+| `gg` | First line |
+| `G` | Last line |
+| `0` | Beginning of line |
+| `$` | End of line |
+| `w` | Next word |
+| `b` | Previous word |
+
+### Editing
+| Command | Description |
+|---------|-------------|
+| `x` | Delete character |
+| `dd` | Delete line |
+| `yy` | Yank (copy) line |
+| `p` | Paste below |
+| `P` | Paste above |
+| `u` | Undo |
+| `Ctrl+r` | Redo |
+| `cw` | Change word |
+
+### Search and Replace
+| Command | Description |
+|---------|-------------|
+| `/pattern` | Search forward |
+| `?pattern` | Search backward |
+| `n` | Next match |
+| `N` | Previous match |
+| `:s/old/new/` | Replace on current line |
+| `:%s/old/new/g` | Replace all in file |
+| `:%s/old/new/gc` | Replace with confirmation |
+
+### Other
+| Command | Description |
+|---------|-------------|
+| `:set nu` | Show line numbers |
+| `:set nonu` | Hide line numbers |
+| `.` | Repeat last command |
+| `v` | Visual mode |
+| `V` | Visual line mode |
+
+---
+
 ## Getting Started
 
 ```bash
@@ -261,6 +335,18 @@ za                     " Toggle fold
 zR                     " Open all folds
 zM                     " Close all folds
 ```
+
+## Tips and Best Practices
+
+1. **Always check your mode** - Look at the bottom of the screen
+2. **Practice navigation** - Use `hjkl` instead of arrow keys for speed
+3. **Use counts** - Commands like `3dd` (delete 3 lines) or `5yy` (copy 5 lines)
+4. **Search efficiently** - Use `/` for forward search, `?` for backward
+5. **Save frequently** - Use `:w` often to avoid losing work
+6. **Learn modes** - Normal, Insert, Visual, Command
+7. **Escape often** - Press `Esc` to return to normal mode when unsure
+
+---
 
 ## Learn More
 
