@@ -1,12 +1,6 @@
 # ============================================================================
 # R Assignment Solutions
 # ============================================================================
-#Name-Abhronkosh Mondal
-#CIN- 24-400-4-04-0035
-#Paper code-S2MT230411P
-#Semester- 4th
-#Year- 2nd
-#Roll number- 35
 
 # ----------------------------------------------------------------------------
 # PROBLEM 1: Quadratic Equation Roots
@@ -17,7 +11,7 @@
 cat("\n========== PROBLEM 1 ==========\n")
 
 # Generate random coefficients
-set.seed(NULL) 
+set.seed(NULL)
 coefficients <- rnorm(3)
 a <- coefficients[1]
 b <- coefficients[2]
