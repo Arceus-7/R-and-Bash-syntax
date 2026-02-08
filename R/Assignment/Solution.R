@@ -1,7 +1,12 @@
 # ============================================================================
 # R Assignment Solutions
 # ============================================================================
-# Complete solutions to the Problem Set
+#Name-Abhronkosh Mondal
+#CIN- 24-400-4-04-0035
+#Paper code-S2MT230411P
+#Semester- 4th
+#Year- 2nd
+#Roll number- 35
 
 # ----------------------------------------------------------------------------
 # PROBLEM 1: Quadratic Equation Roots
@@ -12,7 +17,7 @@
 cat("\n========== PROBLEM 1 ==========\n")
 
 # Generate random coefficients
-set.seed(NULL) # Remove this if you want reproducible results
+set.seed(NULL) 
 coefficients <- rnorm(3)
 a <- coefficients[1]
 b <- coefficients[2]
@@ -354,8 +359,7 @@ speed_data <- matrix(
         77, 70, 63, 84, 96, # Type A
         90, 73, 71, 91, 93, # Type B
         46, 54, 60, 70, 74, # Type C
-        69, 76, 79, 81, 83
-    ), # Type D
+        69, 76, 79, 81, 83 ), # Type D
     nrow = 5,
     ncol = 4,
     byrow = FALSE
@@ -443,4 +447,3 @@ for (diet_name in names(diet_data)) {
     cat("SD =", sd(diet_data[[diet_name]]), "gm\n")
 }
 
-cat("\n========== ALL PROBLEMS COMPLETED ==========\n")
