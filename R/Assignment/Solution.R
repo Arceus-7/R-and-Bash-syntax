@@ -397,7 +397,7 @@ cat("\nAnalysis of road condition effect:\n")
 cat("Average speeds by road type:\n")
 print(colMeans(speed_data_new))
 cat(
-    "\nObservation: Type B roads have the highest average speed (", mean(speed_data[, "Type_B"]),
+    "\nObservation: Type E roads have the highest average speed (", mean(speed_data[, "Type_B"]),
     "km/h),\n"
 )
 cat("while Type C roads have the lowest (", mean(speed_data[, "Type_C"]), "km/h).\n")
