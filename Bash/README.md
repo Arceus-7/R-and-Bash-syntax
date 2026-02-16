@@ -2,41 +2,44 @@
 
 Shell scripting for automation, text processing, and system administration.
 
-## Contents
+## Directory Structure
 
-### [Basics/](./Basics/)
-- Variables and arrays
-- Control structures
-- Functions and arguments
+### Basics
+Variables, arrays, control structures, functions, command-line arguments.
 
-### [Text-Processing/](./Text-Processing/)
-- grep, sed, awk examples
-- String manipulation
+### Text-Processing
+String manipulation, grep, sed, awk examples.
 
-### [File-Operations/](./File-Operations/)
-- Batch file operations
-- Search and backup scripts
+### File-Operations
+Batch file operations, search utilities, backup scripts.
 
-### [System-Administration/](./System-Administration/)
-- Disk monitoring
-- Process management
-- Log processing
+### System-Administration
+Disk monitoring, process management, log processing.
 
-### [Algorithms/](./Algorithms/)
-- String manipulation
-- Sorting implementations
+### Algorithms
+String manipulation algorithms, sorting implementations.
 
-## Running Bash Scripts
+## Usage
 
 ```bash
 # Make executable
 chmod +x script.sh
 
-# Run
+# Execute
 ./script.sh
 
-# Or use bash directly
+# Direct execution
 bash script.sh
 ```
 
-All scripts start with `#!/bin/bash` shebang.
+## Script Conventions
+
+All scripts include `#!/bin/bash` shebang for portability.
+
+## Learning Path
+
+1. Basics - Core shell scripting syntax
+2. Text-Processing - Text manipulation tools
+3. File-Operations - File system operations
+4. Algorithms - Algorithm implementations
+5. System-Administration - System management tasks

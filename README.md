@@ -1,73 +1,55 @@
-# R & Bash Learning Repository
+# R and Bash Learning Repository
 
-A collection of R and Bash scripts for learning programming, statistical computing, shell scripting, and system administration.
+Programming scripts and documentation for R statistical computing and Bash shell scripting.
 
-**Disclaimer:** This repository is not intended to be the most "credible" source for these subjects. I created it simply to help myself with my studies.
+## Overview
+
+This repository contains educational materials covering R programming, Bash scripting, terminal commands, Vim editor usage, and SSH operations.
 
 ## Contents
 
-- [R Programming](#r-programming)
-- [Bash Scripting](#bash-scripting)
-- [Terminal Commands](#terminal-commands)
-- [Vim Editor](#vim-editor)
-- [SSH & Remote Access](#ssh--remote-access)
+### R Programming
+Statistical computing and data analysis scripts.
+- Basics: Variables, operators, control flow
+- Data structures: Vectors, lists, matrices, data frames
+- Functions: Custom functions and functional programming
+- Data visualization: Base R plotting, ggplot2, 3D graphics
+- Algorithms: Sorting, searching, statistical methods, numerical methods
+- Advanced: Linear algebra, differential equations, non-linear systems
+- Statistics: Descriptive statistics, ANOVA, inference
 
-## R Programming
+[View R Directory](./R/)
 
-Learn R from basics to advanced statistical computing and data visualization.
+### Bash Scripting
+Shell automation and system administration scripts.
+- Basics: Variables, arrays, control structures, functions
+- Text processing: grep, sed, awk
+- File operations: Batch processing, search, backup
+- System administration: Monitoring, process management
+- Algorithms: String manipulation, sorting
 
-**Directory Structure:**
-```
-R/
-├── Basics/               # Variables, data types, control flow
-├── Data-Structures/      # Vectors, lists, matrices, data frames
-├── Functions/            # Creating and using functions
-├── Data-Visualization/   # ggplot2 and plotting
-└── Algorithms/           # Sorting, searching, statistical algorithms
-```
+[View Bash Directory](./Bash/)
 
-[View R Scripts](./R/)
+### Terminal Commands
+Essential Linux command reference and usage guides.
 
-## Bash Scripting
+[View Terminal Directory](./Terminal/)
 
-Shell scripting for automation and system administration.
+### Vim Editor
+Vim commands, configuration, and workflow documentation.
 
-**Directory Structure:**
-```
-Bash/
-├── Basics/                    # Variables, arrays, functions
-├── Text-Processing/           # grep, sed, awk
-├── File-Operations/           # File manipulation scripts
-├── System-Administration/     # Monitoring and maintenance
-└── Algorithms/                # String manipulation, sorting
-```
+[View Vim Directory](./Vim/)
 
-[View Bash Scripts](./Bash/)
+### SSH and Remote Access
+SSH configuration, file transfer, and security practices.
 
-## Terminal Commands
+[View SSH Directory](./SSH/)
 
-Essential Linux terminal commands and usage guides.
+## Usage
 
-[View Terminal Guide](./Terminal/)
-
-## Vim Editor
-
-Vim commands and configuration reference.
-
-[View Vim Guide](./Vim/)
-
-## SSH & Remote Access
-
-SSH connection, file transfer, and security best practices.
-
-[View SSH Guide](./SSH/)
-
-## Getting Started
-
-### Running R Scripts
-
+### R Scripts
 ```bash
-# Interactive R console
+# Interactive console
 R
 > source("script.r")
 
@@ -75,27 +57,25 @@ R
 Rscript script.r
 ```
 
-### Running Bash Scripts
-
+### Bash Scripts
 ```bash
 # Make executable
 chmod +x script.sh
 
-# Run
+# Execute
 ./script.sh
 ```
 
 ## Repository Structure
-
 ```
 .
-├── R/                      # R programming scripts
-├── Bash/                   # Bash scripting examples
-├── Terminal/               # Terminal command guides
-├── Vim/                    # Vim editor documentation
-└── SSH/                    # SSH and remote access guides
+├── R/                      # R programming
+├── Bash/                   # Bash scripting
+├── Terminal/               # Terminal commands
+├── Vim/                    # Vim documentation
+└── SSH/                    # SSH guides
 ```
 
 ## License
 
-Educational purposes only. Free to use and share.
+Educational use. Free to use and modify.

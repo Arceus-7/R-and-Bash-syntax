@@ -1,34 +1,41 @@
 # R Programming
 
-R scripts for learning statistical computing and data analysis.
+Statistical computing and data analysis scripts in R.
 
-## Contents
+## Directory Structure
 
-### [Basics/](./Basics/)
-- Variables and data types
-- Operators and control flow
-- Input/output operations
+### Advanced
+Linear algebra, differential equations, system of equations, non-linear equations, and eigenvalue computations.
 
-### [Data-Structures/](./Data-Structures/)
-- Vectors, lists, matrices
-- Data frames and factors
+### Algorithms
+- **Dynamic-Programming**: Fibonacci sequence
+- **Searching**: Binary search
+- **Sorting**: Quick sort
+- **Statistical**: Linear regression, hypothesis testing, k-means clustering
+- **Numerical**: Bisection method, Collatz conjecture, decimal representations
 
-### [Functions/](./Functions/)
-- Creating custom functions
-- Apply family (lapply, sapply, apply)
+### Assignment
+Problem sets and solutions.
 
-### [Data-Visualization/](./Data-Visualization/)
-- Base R plotting
-- ggplot2 basics
+### Basics
+Variables, operators, control flow, loops, conditionals, sequences, input/output, print/paste functions.
 
-### [Algorithms/](./Algorithms/)
-- Sorting and searching algorithms
-- Statistical implementations
+### Data-Structures
+Vectors, lists, matrices, data frames, strings.
 
-## Running R Scripts
+### Data-Visualization
+Base R plotting, ggplot2, 3D visualization.
+
+### Functions
+Custom functions and function composition.
+
+### Statistics
+Descriptive statistics, ANOVA, statistical inference.
+
+## Usage
 
 ```bash
-# Interactive R console
+# Interactive console
 R
 > source("Basics/variables.r")
 
@@ -38,8 +45,10 @@ Rscript Basics/variables.r
 
 ## Learning Path
 
-1. Start with Basics/
-2. Learn Data-Structures/
-3. Practice with Functions/
-4. Visualize with Data-Visualization/
-5. Implement Algorithms/
+1. Basics - Core R syntax and control structures
+2. Data-Structures - Data manipulation and organization
+3. Functions - Reusable code components
+4. Data-Visualization - Graphical representations
+5. Statistics - Statistical analysis methods
+6. Algorithms - Algorithm implementations
+7. Advanced - Mathematical and computational topics
