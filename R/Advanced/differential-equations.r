@@ -409,4 +409,3 @@ cat("Expected (63.2% of Vs):", 0.632 * parms_rc["Vs"], "V\n")
 cat("\nVoltage at t = 5*tau:", sol_rc[nrow(sol_rc), 2], "V\n")
 cat("Expected (~99% of Vs):", 0.99 * parms_rc["Vs"], "V\n")
 
-cat("\n========== ALL DIFFERENTIAL EQUATIONS EXAMPLES COMPLETED ==========\n")

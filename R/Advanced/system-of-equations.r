@@ -364,4 +364,3 @@ cat(
     coeffs_int[3], "CO2 +", coeffs_int[4], "H2O\n"
 )
 
-cat("\n========== ALL EXAMPLES COMPLETED ==========\n")

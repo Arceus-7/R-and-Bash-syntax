@@ -404,4 +404,3 @@ acc_rc$deposit(500)
 acc_rc$withdraw(200)
 cat("Balance:", acc_rc$getBalance(), "\n")
 
-cat("\n=== Classes and Objects Complete ===\n")
