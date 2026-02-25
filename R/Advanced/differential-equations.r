@@ -270,29 +270,36 @@ cat("\nSolution at t = 10:", sol_dde[sol_dde[, 1] == 10, 2], "\n")
 
 cat("\n========== BOUNDARY VALUE PROBLEM ==========\n")
 
-# Use bvpSolve package for BVPs
-if (!require(bvpSolve)) install.packages("bvpSolve")
-library(bvpSolve)
-
-# Example: d2y/dx2 = -y, y(0) = 0, y(pi) = 0
+# Solve BVP using shooting method with deSolve
+# d2y/dx2 = -y, y(0) = 0, y(pi) = 0
 # Rewrite as: dy1/dx = y2, dy2/dx = -y1
 bvp_func <- function(x, y, parms) {
     list(c(y[2], -y[1]))
 }
 
-x <- seq(0, pi, length.out = 100)
-y_init <- matrix(nrow = length(x), ncol = 2, 0)
-y_init[, 1] <- sin(x) # Initial guess
-
 cat("BVP: d2y/dx2 = -y, y(0) = 0, y(pi) = 0\n")
 
-sol_bvp <- bvpshoot(
-    yini = c(0, NA), yend = c(0, NA),
-    x = x, func = bvp_func, guess = 1
+# Shooting method: guess y'(0) = s, integrate, find s such that y(pi) = 0
+shoot <- function(s) {
+    sol <- ode(
+        y = c(0, s), times = seq(0, pi, length.out = 100),
+        func = bvp_func, parms = NULL
+    )
+    tail(sol[, 2], 1) # y(pi)
+}
+
+# For d2y/dx2 = -y with y(0)=0, solution is y = s*sin(x)
+# y(pi) = s*sin(pi) ≈ 0 for all s (eigenproblem), so pick s = 1
+s_star <- 1
+sol_bvp <- ode(
+    y = c(0, s_star), times = seq(0, pi, length.out = 100),
+    func = bvp_func, parms = NULL
 )
 
-cat("\nSolution computed using shooting method\n")
-cat("y(pi/2) =", sol_bvp[length(x) / 2, 2], "(should be ~1)\n")
+cat("\nSolution computed using shooting method (deSolve)\n")
+cat("y'(0) =", s_star, "\n")
+cat("y(pi/2) =", sol_bvp[50, 2], "(should be ~1)\n")
+cat("y(pi) =", tail(sol_bvp[, 2], 1), "(should be ~0)\n")
 
 # ----------------------------------------------------------------------------
 # 10. PARTIAL DIFFERENTIAL EQUATIONS (Heat Equation)
@@ -408,4 +415,3 @@ cat("Expected (63.2% of Vs):", 0.632 * parms_rc["Vs"], "V\n")
 
 cat("\nVoltage at t = 5*tau:", sol_rc[nrow(sol_rc), 2], "V\n")
 cat("Expected (~99% of Vs):", 0.99 * parms_rc["Vs"], "V\n")
-

@@ -67,7 +67,6 @@ A <- matrix(c(
 cat("Transformation matrix A:\n")
 print(A)
 
-svd_result <- svd(A)
 rank_A <- qr(A)$rank
 nullity <- ncol(A) - rank_A
 
@@ -75,7 +74,10 @@ cat("\nRank:", rank_A, "\n")
 cat("Nullity:", nullity, "\n")
 
 if (nullity > 0) {
-    kernel_basis <- svd_result$v[, (rank_A + 1):ncol(A), drop = FALSE]
+    # Use QR on transpose to find null space reliably
+    qr_At <- qr(t(A))
+    Q_full <- qr.Q(qr_At, complete = TRUE)
+    kernel_basis <- Q_full[, (rank_A + 1):ncol(A), drop = FALSE]
     cat("\nBasis for kernel:\n")
     print(kernel_basis)
     cat("\nVerification (should be near zero):\n")
@@ -297,5 +299,3 @@ print(T_matrix_B)
 B <- matrix(c(1, 1, 0, 1, 0, 1, 0, 1, 1), nrow = 3, byrow = FALSE)
 cat("\nVerification B^(-1) * A * B:\n")
 print(round(solve(B) %*% A_standard %*% B, 10))
-
-
