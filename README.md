@@ -22,11 +22,12 @@ Statistical computing and data analysis scripts.
 
 ### Bash Scripting
 Shell automation and system administration scripts.
-- Basics: Variables, arrays, control structures, functions
-- Text processing: grep, sed, awk
-- File operations: Batch processing, search, backup
-- System administration: Monitoring, process management
-- Algorithms: String manipulation, sorting
+- Basics: Variables, arrays, control structures, arithmetic, unit conversion
+- Text processing: grep, sed, awk, CSV parsing, log analysis
+- File operations: Batch processing, search, backup, integrity checks
+- System administration: Monitoring, process management, health dashboards
+- Algorithms: String manipulation, sorting, searching, matrix operations
+- Assignment: 22 UNIX shell script practice problems with solutions
 
 [View Bash Directory](./Bash/)
 
