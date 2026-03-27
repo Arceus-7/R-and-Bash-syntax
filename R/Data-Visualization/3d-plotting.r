@@ -16,6 +16,33 @@ library(plotly)
 library(magrittr)
 
 # ============================================================================
+# PART 0: BASE R 3D PLOTTING
+# ============================================================================
+
+cat("\n========== BASE R: persp() AND outer() ==========\n")
+
+# Base R uses outer() to rapidly apply a function over all combinations of x and y
+x_base <- seq(-10, 10, length.out = 30)
+y_base <- x_base
+f_base <- function(x, y) { r <- sqrt(x^2 + y^2); 10 * sin(r) / r }
+
+# Create the Z matrix
+z_base <- outer(x_base, y_base, f_base)
+
+# Replace NaNs at (0,0) with limit 10
+z_base[is.na(z_base)] <- 10
+
+# Plot using base R function
+persp(x_base, y_base, z_base,
+    theta = 30, phi = 30, expand = 0.5,
+    col = "lightblue",
+    ltheta = 120, shade = 0.75,
+    ticktype = "detailed",
+    xlab = "X", ylab = "Y", zlab = "Z",
+    main = "Base R persp() Function"
+)
+
+# ============================================================================
 # PART 1: plot3D PACKAGE - Static 3D Plots
 # ============================================================================
 
@@ -101,24 +128,22 @@ cat("ticktype: 'simple' or 'detailed'\n")
 
 cat("\n========== 3D CONTOUR PLOTS ==========\n")
 
-# 3D contour with filled contours
-contour3D(x_grid, y_grid, z_grid,
+# 2D contour plot representation of 3D data
+image2D(z = z_grid, x = 1:20, y = 1:20,
     colkey = TRUE,
     col = jet.col(100),
-    nlevels = 20,
-    main = "3D Contour Plot"
+    main = "2D Filled Contour Plot"
+)
+contour2D(z = z_grid, x = 1:20, y = 1:20,
+    nlevels = 20, col = "black", alpha = 0.5, add = TRUE
 )
 
-# Contour lines on surface
-surf3D(x_grid, y_grid, z_grid,
+# Surface with properly bounded contours (on the surface and base plane)
+persp3D(x = 1:20, y = 1:20, z = z_grid,
     col = "lightblue",
     colkey = FALSE,
-    main = "Surface with Contours"
-)
-contour3D(x_grid, y_grid, z_grid,
-    col = "black", lwd = 2,
-    add = TRUE, # Add to existing plot
-    nlevels = 10
+    contour = list(side = c("zmin", "z"), col = "black", lwd = 1),
+    main = "Surface with Base Contours"
 )
 
 cat("nlevels: number of contour levels\n")
@@ -216,10 +241,11 @@ lines3D(x_line, y_line, z_line,
     main = "3D Parametric Curve"
 )
 
-# Ribbon plot
-ribbon3D(x_line, y_line, z_line,
+# Ribbon plot using a matrix
+z_ribbon <- matrix(nrow = 10, ncol = 10, data = rnorm(100))
+ribbon3D(z = z_ribbon,
     col = jet.col(100),
-    along = z_line,
+    along = "x",
     width = 0.2,
     main = "3D Ribbon"
 )
@@ -242,7 +268,7 @@ u <- -grid$y # X component
 v <- grid$x # Y component
 w <- rep(0, length(u)) # Z component
 
-arrows3D(grid$x, grid$y, 0,
+arrows3D(grid$x, grid$y, rep(0, length(grid$x)),
     grid$x + u * 0.3, grid$y + v * 0.3, w,
     col = "blue", lwd = 2,
     length = 0.1, # Arrow head length
@@ -327,9 +353,10 @@ cat("\n========== 3D HISTOGRAMS AND IMAGES ==========\n")
 # 3D histogram
 x_hist <- rnorm(1000)
 y_hist <- rnorm(1000)
+# Create 2D frequency count matrix for z
+z_hist <- table(cut(x_hist, 15), cut(y_hist, 15))
 hist3D(
-    x = x_hist, y = y_hist,
-    breaks = c(15, 15),
+    z = z_hist,
     col = jet.col(100),
     theta = 30, phi = 30,
     main = "3D Histogram"
@@ -340,7 +367,7 @@ cat("breaks: number of bins in each direction\n")
 # Image in 3D
 volcano_data <- volcano # Built-in dataset
 image3D(
-    z = volcano_data,
+    z = 1, colvar = volcano_data,
     col = terrain.colors(100),
     colkey = TRUE,
     main = "3D Image Plot"
@@ -372,7 +399,7 @@ cat("rgl opens INTERACTIVE window - you can rotate, zoom with mouse\n")
 cat("type options: 'p' (points), 's' (spheres), 'l' (lines), 'h' (line segments to xy plane)\n")
 
 # Add surface to rgl
-rgl.close() # Close previous
+close3d() # Close previous
 open3d()
 bg3d("lightgray")
 
@@ -398,7 +425,7 @@ title3d(main = "Interactive Surface", xlab = "X", ylab = "Y", zlab = "Z")
 cat("\n========== rgl ROTATION AND ANIMATION ==========\n")
 
 # Set viewing angle
-rgl.viewpoint(theta = 30, phi = 30, fov = 60, zoom = 0.8)
+view3d(theta = 30, phi = 30, fov = 60, zoom = 0.8)
 
 cat("theta, phi: viewing angles\n")
 cat("fov: field of view (smaller = more zoomed)\n")
@@ -417,7 +444,7 @@ cat("rpm: rotations per minute\n")
 
 cat("\n========== rgl ADVANCED FEATURES ==========\n")
 
-rgl.close()
+close3d()
 open3d()
 bg3d("white")
 
