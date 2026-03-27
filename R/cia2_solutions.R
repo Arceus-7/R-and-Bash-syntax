@@ -16,10 +16,10 @@ y <- pi/4
 print(c(eval(dx), eval(dy)))
 
 # 4
-x_vals <- seq(0, 5, length.out = 30)
-y_vals <- seq(0, 5, length.out = 30)
-z_vals <- outer(x_vals, y_vals, function(x, y) sqrt(x * y))
-persp(x_vals, y_vals, z_vals, theta = 15, phi = 30, col = "lightblue", main = "Graph of z^2 = xy")
+x <- seq(0, 5, length.out = 30)
+y <- seq(0, 5, length.out = 30)
+z <- outer(x, y, function(x, y) sqrt(x * y))
+persp(x, y, z, theta = 15, phi = 30, col = "lightblue", main = "Graph of z^2 = xy")
 
 # 5
 rat_data <- list(A = c(2, 5, 9, 1, 7), B = c(3, 3, 1), C = c(5, 7, 3, 8))
@@ -28,45 +28,33 @@ print(mean(rat_data$A))
 print(sd(rat_data$C))
 
 # 6
-X_vals <- c(80, 95, 120, 145, 165, 180, 190)
-Y_vals <- c(5, 6, 8, 7, 11, 9, 10)
-model <- lm(Y_vals ~ X_vals)
-prediction <- predict(model, newdata = data.frame(X_vals = 130))
+X <- c(80, 95, 120, 145, 165, 180, 190)
+Y <- c(5, 6, 8, 7, 11, 9, 10)
+model <- lm(Y ~ X)
+prediction <- predict(model, newdata = data.frame(X = 130))
 print(unname(prediction))
 
 # 7
 decimal_representation <- function(p, q) {
-  if (p <= 0 || p >= q) return(list(non_recurring = "", recurring = ""))
-  rem <- p
-  rem_dict <- new.env(hash = TRUE, parent = emptyenv())
-  result <- c()
-  pos <- 1
-  while (rem != 0 && is.null(rem_dict[[as.character(rem)]])) {
-    rem_dict[[as.character(rem)]] <- pos
-    rem <- rem * 10
-    result <- c(result, rem %/% q)
-    rem <- rem %% q
-    pos <- pos + 1
+  rem <- p; rems <- c(); res <- c()
+  while (rem != 0 && !(rem %in% rems)) {
+    rems <- c(rems, rem)
+    res <- c(res, (rem * 10) %/% q)
+    rem <- (rem * 10) %% q
   }
-  if (rem == 0) {
-    non_recurring <- paste(result, collapse = "")
-    recurring <- ""
-  } else {
-    repeat_start <- rem_dict[[as.character(rem)]]
-    non_recurring <- paste(result[1:max(1, repeat_start - 1)], collapse = "")
-    if (repeat_start == 1) non_recurring <- ""
-    recurring <- paste(result[repeat_start:length(result)], collapse = "")
-  }
-  list(non_recurring = non_recurring, recurring = recurring)
+  idx <- match(rem, rems)
+  non_rec <- if (is.na(idx)) res else res[seq_len(idx - 1)]
+  rec <- if (is.na(idx)) c() else res[idx:length(res)]
+  list(non_recurring = paste0("0.", paste(non_rec, collapse = "")), recurring = paste(rec, collapse = ""))
 }
 print(decimal_representation(1, 7))
 
 # 8
-mat2 <- cbind(c(2, 3), c(3, 2))
+mat2 <- matrix(c(2, 3, 3, 2), ncol = 2)
 is_basis2 <- det(mat2) != 0
 print(is_basis2)
 
-mat3 <- cbind(c(1, 2, 4), c(1, 3, 9), c(1, 4, 16))
+mat3 <- matrix(c(1, 2, 4, 1, 3, 9, 1, 4, 16), ncol = 3)
 is_basis3 <- det(mat3) != 0
 print(is_basis3)
 
@@ -75,7 +63,7 @@ T_map <- function(v) {
 }
 Tv1 <- T_map(c(2, 3))
 Tv2 <- T_map(c(3, 2))
-T_matrix <- cbind(solve(mat3, Tv1), solve(mat3, Tv2))
+T_matrix <- matrix(c(solve(mat3, Tv1), solve(mat3, Tv2)), ncol = 2)
 print(T_matrix)
 
 # 9
