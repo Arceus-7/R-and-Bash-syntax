@@ -157,6 +157,27 @@ hist(rnorm(1000), col = "lightblue", main = "Normal Distribution")
 hist(rexp(1000), col = "lightcoral", main = "Exponential Distribution")
 par(mfrow = c(1, 1)) # Reset
 
+# Cumulative Frequency Distribution
+cat_data <- c(10, 12, 14, 10, 16, 12, 18, 20, 14, 16, 20, 12, 10, 14, 16, 18, 20, 12, 16, 18, 16)
+freq_table <- data.frame(table(cat_data))
+x_vals <- as.numeric(as.character(freq_table$cat_data))
+f_vals <- freq_table$Freq
+
+less_cum <- cumsum(f_vals)
+grt_cum <- sum(f_vals) - cumsum(f_vals) + f_vals
+
+# Plotting Ogives (Cumulative Frequency Curves)
+matplot(x_vals, cbind(less_cum, grt_cum),
+    type = "b", pch = 19, lwd = 2,
+    col = c("blue", "red"),
+    main = "Cumulative Frequency Distribution",
+    xlab = "Values", ylab = "Cumulative Frequency"
+)
+legend("left",
+    legend = c("Less than cumulative", "Greater than cumulative"),
+    col = c("blue", "red"), lty = 1:2, pch = 19
+)
+
 # ----------------------------------------------------------------------------
 # 5. BOX PLOTS
 # ----------------------------------------------------------------------------

@@ -4,8 +4,10 @@
 # Comprehensive guide to solving ODEs and PDEs in R using deSolve package
 
 # Load required package
-if (!require(deSolve)) install.packages("deSolve")
+if (!require(deSolve)) install.packages("deSolve", repos="http://cran.us.r-project.org")
+if (!require(pracma)) install.packages("pracma", repos="http://cran.us.r-project.org")
 library(deSolve)
+library(pracma)
 
 # ----------------------------------------------------------------------------
 # 1. FIRST-ORDER ODE: dy/dt = f(t, y)
@@ -381,6 +383,13 @@ for (method in methods) {
     error <- abs(results[[method]] - exp(-10))
     cat(sprintf("%-10s: %.8f  (error: %.2e)\n", method, results[[method]], error))
 }
+
+# Add Crank-Nicolson method from pracma
+# dy/dt = f(x, y) = -y, y(0) = 1, interval [0, 10]
+ode_func <- function(t, y) -y
+sol_cranknic <- cranknic(ode_func, 0, 10, 1, 100)
+cranknic_val <- sol_cranknic$y[length(sol_cranknic$y)]
+cat(sprintf("%-10s: %.8f  (error: %.2e)\n", "cranknic", cranknic_val, abs(cranknic_val - exp(-10))))
 
 # ----------------------------------------------------------------------------
 # 12. PRACTICAL EXAMPLE: RC Circuit

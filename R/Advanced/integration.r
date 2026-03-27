@@ -99,9 +99,22 @@ right <- integrate(function(x) 1 / x, eps, 1)$value
 left + right # ≈ 0
 
 # ============================================================================
-# 6. MULTIDIMENSIONAL INTEGRATION (cubature)
+# 6. MULTIDIMENSIONAL INTEGRATION (pracma and cubature)
 # ============================================================================
 
+# Using pracma's integral2 for double integration over regions
+# Ex: Volume of sphere x^2 + y^2 + z^2 = 1.
+# Upper hemisphere z = sqrt(1 - x^2 - y^2) integrated over circle x^2 + y^2 <= 1
+f_sphere <- function(x, y) { sqrt(1 - x^2 - y^2) }
+# y limits depend on x: from 0 to sqrt(1-x^2) for positive quadrant
+ymax <- function(x) { sqrt(1 - x^2) }
+# Integrate over first quadrant, total volume is 8 * integral
+V_quad <- integral2(f_sphere, 0, 1, 0, ymax)
+cat("\nPracma integral2 (1st quadrant sphere):", V_quad$Q, "\n")
+cat("Total Sphere Volume (8 * V_quad):", 8 * V_quad$Q, "\n")
+cat("Analytical Volume (4*pi/3):", 4 * pi / 3, "\n\n")
+
+# Using cubature's adaptIntegrate
 # Double integral: ∫∫ x*y dA over [0,1]×[0,1] = 1/4
 f_2d <- function(x) x[1] * x[2]
 adaptIntegrate(f_2d, lowerLimit = c(0, 0), upperLimit = c(1, 1))

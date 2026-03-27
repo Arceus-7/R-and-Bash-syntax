@@ -3,6 +3,12 @@
 # ============================================================================
 # Comprehensive guide to solving systems of equations in R
 
+# Load required packages
+if (!require(matlib)) install.packages("matlib", repos="http://cran.us.r-project.org")
+if (!require(Matrix)) install.packages("Matrix", repos="http://cran.us.r-project.org")
+library(matlib)
+library(Matrix)
+
 # ----------------------------------------------------------------------------
 # 1. SOLVING LINEAR SYSTEMS USING solve()
 # ----------------------------------------------------------------------------
@@ -20,6 +26,12 @@ cat("Coefficient matrix A:\n")
 print(A)
 cat("\nConstant vector b:\n")
 print(b)
+
+cat("\nSystem of Equations (matlib::showEqn):\n")
+showEqn(A, b)
+
+cat("\nRow Reduced Echelon Form (matlib::echelon):\n")
+print(echelon(cbind(A, b)))
 
 # Solve the system
 solution <- solve(A, b)
@@ -104,7 +116,8 @@ if (abs(det_A) < 1e-10) {
 
 # Rank
 rank_A <- qr(A)$rank
-cat("Rank of A:", rank_A, "\n")
+cat("Rank of A (qr factor):", rank_A, "\n")
+cat("Rank of A (Matrix::rankMatrix):", as.numeric(rankMatrix(A)), "\n")
 
 # Condition number
 cond_A <- kappa(A)

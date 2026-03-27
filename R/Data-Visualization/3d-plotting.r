@@ -5,13 +5,15 @@
 # Covers angles, rotation, colors, lighting, and all parameters
 
 # Load required packages
-if (!require(plot3D)) install.packages("plot3D")
-if (!require(rgl)) install.packages("rgl")
-if (!require(plotly)) install.packages("plotly")
+if (!require(plot3D)) install.packages("plot3D", repos="http://cran.us.r-project.org")
+if (!require(rgl)) install.packages("rgl", repos="http://cran.us.r-project.org")
+if (!require(plotly)) install.packages("plotly", repos="http://cran.us.r-project.org")
+if (!require(magrittr)) install.packages("magrittr", repos="http://cran.us.r-project.org")
 
 library(plot3D)
 library(rgl)
 library(plotly)
+library(magrittr)
 
 # ============================================================================
 # PART 1: plot3D PACKAGE - Static 3D Plots
