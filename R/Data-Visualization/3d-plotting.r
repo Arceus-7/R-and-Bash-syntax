@@ -538,11 +538,10 @@ plot_ly() %>%
 cat("\n========== COMPLEX 3D STRUCTURES ==========\n")
 
 # 3D Mandelbrot-like structure
-mandel_3d <- function(xlim = c(-2, 1), ylim = c(-1.5, 1.5), zlim = c(0, 2),
+mandel_3d <- function(xlim = c(-2, 1), ylim = c(-1.5, 1.5),
                       n = 50, max_iter = 20) {
     x <- seq(xlim[1], xlim[2], length.out = n)
     y <- seq(ylim[1], ylim[2], length.out = n)
-    z <- seq(zlim[1], zlim[2], length.out = n)
 
     result <- array(0, dim = c(n, n, n))
 
